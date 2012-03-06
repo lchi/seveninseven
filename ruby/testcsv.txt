@@ -1,0 +1,5 @@
+name, age, favorite
+john, 12, pizza
+alex, 09, steak
+stacy, 24, buns
+lucas, 13, leeks
