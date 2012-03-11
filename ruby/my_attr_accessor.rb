@@ -16,20 +16,7 @@ module MyUtil
 end
 
 class MyClass 
-  def self.my_accessor *args
-    args.each do |val|
-
-      define_method val.to_s do
-          instance_variable_get("@#{val.to_s}")
-      end
-
-        define_method "#{val.to_s}=" do |value|
-          instance_variable_set("@#{val.to_s}", value)
-      end
-
-    end
-  end
-
+  extend MyUtil
   my_accessor :some_val
 end
 
@@ -39,7 +26,7 @@ m = MyClass.new
 #m.callCool
 puts m.some_val = 3
 puts m.some_val
-    
+puts MyClass.instance_methods false
 
 
       
