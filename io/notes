@@ -1,0 +1,31 @@
+-Prototype language - every object is a copy of another
+-chains messages together, everything is a message that returns a receiver
+-No classes, only objects which are cloned
+-"Types in Io are just conveniences."
+-An object that begins with an uppercase letter is a type, which means the interpreter
+sets the type slot for that object
+-clones with a lowercase first letter will not have the slot 'type', and will
+need to forward messages to their prototype's 'type' slot
+-"Types are just tools that help Io programmers better organize
+code."
+-If you send a message to an Object and the slot isn't there, then the
+message gets forwarded up the prototype hierarchy
+-can get a slot's value using getSlot
+  -will return the parent's slot if there is none (and traverse hierarchy)
+-Day 1 review stuff (io prototype paradigm):
+  -Everything is an object
+  -Objects have slots, which are like hashes (values stored by keys)
+    -These values are Objects
+  -Objects respond to messages, by looking into the hash
+    -Objects are returned, except in the case of methods (type Block??), 
+    which are executed
+    -if an Object can't respond to a message, the message is forwarded to 
+    its prototype
+  -Objects remember their prototypes
+
+-Useful stuff
+  -Messages passed by: Object <message>, ie Object print, Object clone
+  -get prototype using: Object proto
+  -get type using Object type
+  -define methods using method(<body>)
+-Singletons defined are easy - just rewrite the clone method
